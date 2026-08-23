@@ -1,53 +1,66 @@
-# Systems Engineering Profile
+# Perfil de Engenharia de Sistemas
 
-Public technical profile focused on software architecture, embedded systems, protocol design, backend infrastructure and reliability engineering.
+Perfil técnico público focado em arquitetura de software, sistemas embarcados, protocolos, backend e engenharia de confiabilidade.
 
-## Areas of work
+## Áreas técnicas
 
-- distributed backend services;
-- API contract design and compatibility;
-- embedded software and deterministic state machines;
-- telemetry pipelines and event-driven systems;
-- protocol framing, validation and version negotiation;
-- observability, fault isolation and recovery semantics;
-- secure public sandboxes and synthetic test environments;
-- infrastructure automation and deployment engineering.
+- serviços backend distribuídos;
+- contratos de API e compatibilidade;
+- software embarcado e máquinas de estado determinísticas;
+- pipelines de eventos e processamento concorrente;
+- framing, validação e versionamento de protocolos;
+- observabilidade, isolamento de falhas e recuperação;
+- ambientes públicos com dados exclusivamente sintéticos;
+- automação de infraestrutura e engenharia de deployment;
+- CQRS, event sourcing e optimistic concurrency;
+- backpressure, bulkheads, circuit breakers e retries limitados.
 
-## Engineering model
+## Modelo de engenharia
 
 ```text
-requirements
+requisitos
    ↓
-contracts / RFCs
+contratos / RFCs
    ↓
-domain model
+modelo de domínio
    ↓
-implementation
+implementação
    ↓
-validation / tests
+validação / testes
    ↓
-observability
+observabilidade
    ↓
 deployment
    ↓
-incident feedback
+feedback de incidentes
 ```
 
-## Technical principles
+## Princípios técnicos
 
-1. Interfaces are versioned explicitly.
-2. Failures are isolated by bounded domains.
-3. Public examples contain synthetic data only.
-4. Secrets never belong in source control.
-5. State transitions are deterministic and auditable.
-6. External calls use explicit timeout and retry policies.
-7. Event processing is designed for idempotency.
-8. Schemas are validated at system boundaries.
-9. Builds and tests should be reproducible.
-10. Operational behavior must be observable.
+1. Interfaces possuem versionamento explícito.
+2. Falhas são isoladas em domínios limitados.
+3. Exemplos públicos usam somente dados sintéticos.
+4. Segredos não pertencem ao controle de versão.
+5. Transições de estado são determinísticas e auditáveis.
+6. Chamadas externas possuem timeout e política explícita de retry.
+7. Processamento de eventos considera idempotência desde o projeto.
+8. Schemas são validados nas fronteiras do sistema.
+9. Builds e testes devem ser reproduzíveis.
+10. Comportamento operacional deve ser observável.
+11. Concorrência possui ownership definido e encerramento controlado.
+12. Mudanças incompatíveis exigem migração e rollback documentados.
 
-## Public-code policy
+## Política de código público
 
-Public repositories may contain protocol concepts, synthetic simulators, test fixtures, architecture documentation and non-production examples.
+Os repositórios públicos podem conter algoritmos, estruturas de dados, protocolos sintéticos, simuladores, testes, benchmarks e documentação de arquitetura.
 
-They do not intentionally publish personal information, production credentials, private infrastructure, real customer data, real fleet identifiers or operational device-control interfaces.
+Não são publicados intencionalmente:
+
+- nomes de empresas ou marcas privadas;
+- dados pessoais;
+- credenciais de produção;
+- endpoints internos;
+- topologia privada;
+- dados reais de clientes;
+- inventário real de dispositivos;
+- interfaces operacionais de controle físico.
